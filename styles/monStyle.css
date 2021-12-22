@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+/* *{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+} */
+
+/* color: #3c4c69; */
+
+body {
+    border: 2px solid darkblue;
+    width: 1500px;
+    max-width: 1700px;
+    margin: auto;
+    font-family: 'Poppins', sans-serif;
+    padding-left: 23px;
+    padding-right: 23px;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+section h1 {
+    width: 290px;
+    max-width: 300px;
+    margin: auto;
+    margin-top: 23px;
+    margin-bottom: 40px;
+}
+
+.section-apprenant h2 {
+    /* border: 3px solid gold; */
+    /* width: 200px; */
+    /* margin: auto; */
+    /* margin-bottom: 23px; */
+    /* float: right; */
+    text-align: center;
+    margin-bottom: 23px;
+    margin-top: 0px;
+}
+
+.mon-formulaire h2 {
+    /* border: 3px solid gold; */
+    width: 320px;
+    margin: auto;
+    margin-bottom: 23px;
+}
+
+article {
+    padding-top: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-bottom: 12px;
+    width: 500px;
+    /* border: 3px solid springgreen; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-radius: 10px;
+
+    box-shadow: 10px 8px 34px 6px rgba(185, 181, 181, 0.685);
+    margin-bottom: 25px;
+}
+
+article .image-profil {
+    width: 100px;
+    height: 90px;
+    margin: auto;
+}
+
+article .image-modification {
+    width: 25px;
+}
+
+#text-bio {
+    margin-left: 43px;
+    margin-right: 23px;
+    /* border: 3px solid hotpink; */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+#text-bio p {
+    width: 100%;
+    text-align: justify;
+    /* color: rebeccapurple; */
+}
+
+#space-modify {
+    /* border: 3px solid steelblue; */
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+}
+#mesCartes {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    /* border: 2px solid firebrick; */
+}
+
+.nulle {
+    width: 1200px;
+}

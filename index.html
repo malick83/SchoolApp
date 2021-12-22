@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/monStyle.css">
+    <script type="text/javascript" src="javaScripts/app.js" defer></script>
+    <title>School App</title>
+</head>
+<body>
+    <section>
+        <h1>School APP</h1>
+        <div class="container">
+            <div class="mon-formulaire">
+                <h2>Formulaire à remplir</h2>
+                <form action="">
+                        <p>
+                        <label for="prenom">Prénom</label>
+                        <input
+                            type="text"
+                            id="prenom"
+                            name="prenom"
+                            placeholder="Ex : Malick"
+                        />
+                        </p>
+                    <p>
+                        <label for="nom">Nom</label>
+                        <input
+                            type="text"
+                            id="nom"
+                            name="nom"
+                            placeholder="Ex : KEBE"
+                        />
+                        </p>
+                        
+                        <p>
+                            <label for="monNiveau">Niveau</label>
+                            <select form="monNiveau" name="niveau" size="1" id="mesNiveau">
+                                <option value="Excellent">Excellent</option>
+                                <option value="Trés Bien">Trés Bien</option>
+                                <option value="Bien">Bien</option>
+                                <option value="Passable">Passable</option>
+                            </select>
+                        </p>
+                        <p><textarea
+                            id="bio"
+                            name="bio_content" 
+                            cols="30" 
+                            rows="10" 
+                            placeholder="votre biographie"></textarea></p>
+                        <button
+                            type="submit"
+                            id="btn-ajouter">
+                            Ajouter
+                        </button>
+                </form>
+            </div>
+            <div class="section-apprenant">
+                <h2>Apprenants</h2>
+                <div id="mesCartes">
+                    <div class="nulle"></div>
+                    <!-- <article>
+                        <img src="images/photo-profil.png" alt="Photo Profil" style="width: 100px; height: 90px; margin: auto;">
+                        <div id="text-bio">
+                            <h3>Malic KÉBÉ</h3>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid alias laudantium, quaerat sint laborum corporis itaque mollitia</p>
+                        </div>
+                        <div id="space-modify">
+                            <img usemap="#redirection-picture" src="images/pen-modify.png" alt="icone stylo cliquable pour modifier" style="width: 25px;">
+                            <map name="redirection-picture">
+                            <area href="https://validator.w3.org/" shape="circle" coords="1,1,50" target="_blank" alt="Lien du">
+                            </map>
+
+                            <span>Niveau</span>
+                        </div>
+                    </article> -->
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
