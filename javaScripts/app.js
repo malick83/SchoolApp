@@ -6,6 +6,13 @@ const inputBio = document.querySelector("textarea#bio")
 const selectNiveau = document.querySelector("select#mesNiveau")
 const creationCarte = document.querySelector("#mesCartes")
 
+
+
+//TABLEAU DE LISTE
+
+const monTableauListe = {}
+
+
 // var myTime = new Date();
 varMesId = 0;
 /////
@@ -25,7 +32,7 @@ function createCard(leTableau){
 
     //CRÉATION DES CARTES
     const newArticle = document.createElement("article")
-    newArticle.setAttribute("id", `article-id-${varMesId}`)
+    newArticle.setAttribute("id", 'article-id-'+varMesId)
     newArticle.style.paddingLeft = "12px"
     newArticle.style.paddingRight = "12px"
     newArticle.style.paddingTop = "12px"
@@ -59,9 +66,14 @@ function createCard(leTableau){
 
     const newInput = document.createElement("input")
     const newInputNom = leTableau[0] +" "+leTableau[1]
-    newInput.setAttribute("id", `NomMod-${varMesId}`)
 
+    newInput.setAttribute("id", 'NomMod-'+varMesId)
 
+    
+    
+    
+    
+    
     newInput.style.width = "220px"
     newInput.style.border = "0px"
     newInput.style.marginTop = "20px"
@@ -69,13 +81,13 @@ function createCard(leTableau){
     newInput.style.fontWeight = "bolder"
     newInput.setAttribute("type", "text")
     newInput.setAttribute("value", newInputNom)
-
+    
     const newTextarea = document.createElement("textarea")
     newTextarea.style.width = "100%"
     newTextarea.style.textAlign = "justify"
-
     
-    newTextarea.setAttribute("id", `bioCarte-${varMesId}`)
+    
+    newTextarea.setAttribute("id", 'bioCarte-'+varMesId)
     newTextarea.setAttribute("name", "article_content")
     newTextarea.setAttribute("cols", "30")
     newTextarea.setAttribute("rows", "5")
@@ -83,43 +95,43 @@ function createCard(leTableau){
     newDIv1.appendChild(newInput);
     newDIv1.appendChild(newTextarea)
     // console.log(creationCarte);
-
+    
     //Deuxième Div
     const newDIv2 = document.createElement("div")
     newDIv2.setAttribute("id", `space-modify-${varMesId}`)
     newDIv2.classList.add("space-modify-btn")
-
+    
     newDIv2.style.display = "flex";
     newDIv2.style.flexDirection = "column"
     newDIv2.style.justifyContent = "space-between"
-
+    
     const newButton = document.createElement('button')
     newButton.style.borderRadius = "20px"
     newButton.style.backgroundColor = "white"
     newButton.style.border = "0px"
-
-
+    
+    
     const newImg1 = document.createElement("img")
     newImg1.setAttribute("usemap", "#redirection-picture")
     newImg1.setAttribute("src", "images/pen-modify.png")
     newImg1.classList.add("image-modification")
     newButton.appendChild(newImg1)
     newDIv2.appendChild(newButton)
-
+    
     const newMap = document.createElement("map")
     newMap.setAttribute("name", "redirection-picture")
-    newMap.setAttribute("id", "btnModify")
-
+    newMap.setAttribute("id", 'btnModify-'+varMesId)
+    
     const newArea = document.createElement("area")
     newArea.setAttribute("href", "#")
     newArea.setAttribute("id", "btnModifyArea")
     newArea.setAttribute("shape", "circle")
     newArea.setAttribute("coords", "1,1,50")
     newArea.setAttribute("target", "_self")
-
+    
     newMap.appendChild(newArea)
     newDIv2.appendChild(newMap)
-
+    
     const newButton1 = document.createElement('button')
     const newImg2 = document.createElement("img")
     newImg2.setAttribute("src", "images/close.png")
@@ -130,40 +142,65 @@ function createCard(leTableau){
     newButton1.style.border = "0px"
     newButton1.appendChild(newImg2)
     newDIv2.appendChild(newButton1)
-
+    
     const newInput1 = document.createElement("input")
     newInput1.setAttribute("id", "monNiveauID")
     newInput1.setAttribute("value", leTableau[3])
     newDIv2.appendChild(newInput1)
-
+    
     newArticle.appendChild(newDIv1)
     newArticle.appendChild(newDIv2)
-
+    
     creationCarte.appendChild(newArticle)
-    varMesId = varMesId + 1
+    const newArticleDom = document.getElementById('article-id-'+varMesId)
+    console.log(newArticleDom);
 
-    newMap.addEventListener("click", (event) => {
+    //APRÈS CRÉATION DES CARTES
+    const newInputNomCtrl = document.getElementById('NomMod-'+varMesId)
+    // console.log(newInputNomCtrl);
+
+    newInputNomCtrl.addEventListener('input', (event) => {
+        // console.log(newInputNomCtrl.value);
+        monTableauListe['NomMod-'+varMesId] = {
+                nomPrenom: newInputNomCtrl.value
+            }
+            
+
+            console.log(monTableauListe);
+            return monTableauListe
+        }
+        )
+        
+        
+    
+    // console.log(newTextarea);
+
+    const newMapCtrl = document.getElementById('btnModify-'+varMesId)
+    varMesId = varMesId + 1
+    
+    newMapCtrl.addEventListener("click", (event) => {
         newInput.focus()
         console.log(event);
     })
     
-    newInput.addEventListener("keyup", (event) => {
-            newTextarea.focus()
-    })
-    
-    newTextarea.addEventListener("keyup", (event) => {
-            newInput1.focus()
-    })
+    // newInput.addEventListener("keyup", (event) => {
+        //         newTextarea.focus()
+        // })
+        
+        // newTextarea.addEventListener("keyup", (event) => {
+            //         newInput1.focus()
+    // })
 
-    newInput1.addEventListener("keyup", (event) => {
-            inputPrenom.focus()
-    })
+    // newInput1.addEventListener("keyup", (event) => {
+    //         inputPrenom.focus()
+    // })
 
     newButton1.addEventListener("click", (event) => {
         console.log(event);
         newArticle.remove()
     })
 
+    return monTableauListe
 }
 
 
@@ -179,17 +216,22 @@ ideeForm.addEventListener("submit", (event) => {
     const niveauSaisi = selectNiveau.selectedOptions[0].value
     console.log(niveauSaisi);
     const monTableau = [prenomSaisi, nomSaisi, bioSaisi, niveauSaisi]
+    monTableauListe['NomMod-'+varMesId] = {
+        nomPrenom : prenomSaisi +" "+ nomSaisi
+    }
 
 
-    createCard(monTableau)
+    const leretour = createCard(monTableau)
+    console.log(leretour);
+    
 
 
 
 
 
     // console.log(creationCarte.children[1]);
+    
 })
-
 
 
 
